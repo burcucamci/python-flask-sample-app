@@ -38,8 +38,8 @@ def login():
 
 #spotify
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
-	client_id=('ba07775d1854459d9bf4bb1f730055b5'),
-	client_secret=('2c7a38bf64004c05ba1e81b0d4fb499d')
+	client_id=(''),
+	client_secret=('')
 	)
 )
 
