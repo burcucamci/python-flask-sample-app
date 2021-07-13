@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+   
+{% block head  %}
+<title>Posts</title>
+ {% endblock%}
+
+{% block body  %} 
+ 
+<h1>All Music </h1>
+
+<hr>
+<h2>Music Search App </h2>
+
+<form action='/posts' method='POST'>
+
+
+<label for="title">Title:</label>
+<input class="form-control" type="text" name='title' id ='title' placeholder="Enter Title " aria-label="Enter Title">
+<br> 
+
+
+<label for="author">Author:</label>
+<input class="form-control" type="text" name='author' id ='author' placeholder="Enter Author " aria-label="Enter Author">
+<br>
+
+
+<label for="content">Post:</label>
+<textarea class="form-control" name='content' id="content" placeholder="Enter Content " rows="3"></textarea>
+<br>
+
+
+<input type='submit' value='Post'>
+ </form>
+ <hr>
+
+    {% for post in posts %}
+    <br>
+    <h2> {{post.title}} </h2>
+
+    {% if post.author %}
+
+       <h3> By: {{post.author}}
+    {% else %}
+
+        <h3> By : N/A </h3>
+    {% endif %}
+
+        <p>{{ post.content }}</p>
+        
+        <a class ="btn btn-danger " href ='/posts/delete/{{post.id}}'> Delete </a>
+        <a class ="btn btn-primary" href ='/posts/edit/{{post.id}}'> Edit </a>
+
+        <hr>
+
+    {%endfor%}
+
+{% endblock%}
+

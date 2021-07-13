@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+   
+{% block head  %}
+<title>Home</title>
+ {% endblock%}
+
+{% block body  %} 
+    <style>
+        #onlyJSyc{ 
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        border: none;
+        outline: none;
+        background: url(http://4.bp.blogspot.com/-b50XKMWz84U/W9RouwhqVII/AAAAAAAAR_U/qQFXBOiUuQUC9Rv_evE4S7P9_yZ1YzZDgCK4BGAYYCw/s1600/yukari.png) no-repeat;
+        cursor: pointer;
+        padding: 0px;
+        width: 40px;
+        height: 40px;
+        }
+        </style>
+        <button onclick="topFunction()" id="onlyJSyc"></button>
+        <script>
+        window.onscroll = function() {
+        scrollFunction()
+        };
+        function scrollFunction() {
+        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500)
+        document.getElementById("onlyJSyc").style.display = "block"
+        else
+        document.getElementById("onlyJSyc").style.display = "none"
+        }
+        function topFunction() {
+        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+        document.body.scrollTop -= 40
+        document.documentElement.scrollTop -= 40
+        setTimeout(function() {
+        topFunction()
+        }, 0)
+        } else {
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+        }
+        }
+        </script> 
+
+<!-- slider kodu başlangıç -->
+<style>
+h1{
+  color:rgb(255, 255, 255);
+}
+h2{
+  color:rgb(0, 0, 0);
+}
+
+.bg-yellow {
+  background-color: #f7c04e !important;
+}
+
+.py-6 {
+padding: 100px 0px;
+}
+
+.gradient{
+  background: linear-gradient( #a31745,#859eff); 
+}
+
+.btn-dark{
+  background-color:#000000 !important;
+  border-radius:50px;
+}
+
+.btn-info{
+border-radius:50px;
+}
+</style>
+
+<br>
+<section class ="gradient py-6">
+<div class="container">
+
+  <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+
+  <div class="carousel-inner img=center text-center text-white" style="height: 270px">
+
+    <div class="carousel-item active" >
+    <h1 class ="display-3">" Herkes İçin Müzik"</h1>
+    <a href ="#" class="btn btn-dark py-2 px-5">İLK BİR AY ÜCRETSİZ DENE</a>
+    <a href ="#" class="btn btn-info py-2 px-5">FLASK PREMIUM'A GEÇ</a>
+
+    <!--<img src="{{url_for("static",filename='pics/xx.jpg')}}"  class="img-fluid" alt="..."> -->
+    </div>
+
+    <div class="carousel-item" >
+    <h1 class ="display-3"> "Tüm Aile İçin Premium"</h1>
+    <a href ="#" class="btn btn-dark py-2 px-5">DAHA FAZLA BİLGİ</a>
+
+   <!-- <img src="{{url_for("static",filename='pics/cat.png')}}"  class="img-fluid" alt="..."> -->
+    </div>
+
+    <div class="carousel-item">
+    <h1 class ="display-3">"Öğrencilere Özel<br>Premium İndirimi"</h1>
+    <a href ="#" class="btn btn-dark py-2 px-5">DAHA FAZLA BİLGİ</a>
+
+    <!-- <img src="{{url_for("static",filename='pics/xx.jpg')}}" class="img-fluid" alt="..."> -->
+    </div>
+
+    <div class="carousel-item">
+    <h1 class ="display-3"> "Flask'ı İstediğin<br> Heryerde Dinle"</h1>
+    <a href ="#" class="btn btn-dark py-2 px-5">DAHA FAZLA BİLGİ</a>
+     <!-- <img src="{{url_for("static",filename='pics/xx.jpg')}}" class="img-fluid" alt="..."> -->
+    </div>
+  </div>
+
+    <a href='#carouselExampleInterval' class="carousel-control-prev" data-slide="prev"> 
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+    <a href='#carouselExampleInterval' class="carousel-control-next" data-slide="next"> 
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+</div>
+</div>
+</section>
+<br>
+<!--***************************-->
+ <a name="hakkımızda"></a>
+
+  <div class="breadcrumb">
+          <h4></h4>
+  </div>
+<br>
+<section class "py-5">
+
+<div class ="container">
+<div class ="row">
+
+<div class="col-md-6 text-black">
+<h2>Flask da neler var ? </h2>
+<br>
+<h4>Müzik </h4>
+<p>Flask da milyonlarca şarkı var.En sevdiklerini dinle,yeni parçaları keşfet.Aramak istediğin türü bul. <p>
+<h4>Çalma Listeleri</h4>
+<p>Müzik tutkunları ve uzmanlar tarafından hazırlanmış,ruh haline uyacak hazır çalma listeleri bulacaksın.
+<br>
+<h4>Yeni Çıkanlar</h4>
+<p>Her hafta yeni çıkan single ve albümleri dinle. </p>
+</div>
+
+<div class="col-md-6">
+<div class="row no-gutters">
+
+<div class ="col-md-6 bg-danger">
+    <img src="{{url_for("static",filename='pics/4.jpg')}}"  class="img-fluid" alt="..."> 
+</div>
+
+<div class ="col-md-6 bg danger">
+    <img src="{{url_for("static",filename='pics/2.jpg')}}"  class="img-fluid" alt="..."> 
+ </div>
+
+<div class ="col-md-6 bg-info">
+    <img src="{{url_for("static",filename='pics/6.jpg')}}"  class="img-fluid" alt="..."> 
+ </div>
+
+<div class ="col-md-6 bg-info"> 
+   <img src="{{url_for("static",filename='pics/5.jpg')}}"  class="img-fluid" alt="..."> 
+
+ </div>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+<br>
+<a name="hakkımızda"></a>
+
+  <div class="breadcrumb">
+          <h4></h4>
+  </div>
+
+<!--**********************************-->
+
+<section class="bg-yellow py-5">
+<div class="container">
+<div class="row">
+
+<div class="col-md-3 offset-md-1">
+<h6 class="text-center">Senin için </h6>
+<div class="row">
+
+<div class="col-sm-6 text-center">
+<img src="{{url_for("static",filename='pics/6.jpg')}}"  class="img-fluid" alt="..."> 
+<small class="text-white">Sana özel şarkılar</small>
+
+</div>
+       
+<div class="col-sm-6 text-center">
+<img src="{{url_for("static",filename='pics/4.jpg')}}"  class="img-fluid" alt="..."> 
+<small class="text-white">Yeni çıkan türleri keşfet </small>
+</div>
+
+<ul class="list-unstyled text-white m-3">
+<li class="py-2">Listeler </li>
+<li class="py-2">Yeni Çıkanlar </li>
+<li class="py-2" >Populer Şarkılar</li>
+<li class="py-2" >Farklı Tarzlar</li>
+<li class="py-2" >Keşfet</li>
+
+</ul>
+</div>
+</div>
+
+ <div class="col-md-5 offset-md-1  text-left text-white">
+ <h1>Kolay</h1>
+ <h4>Ara..</h4>
+ <p>Ne dinlemek istediğini bulamıyor musun ? Sadece ara ve çal'a dokun. </p>
+ <h4>Gözat..</h4>
+ <p>En yeni şarkıları keşfet.</p>
+ <h4>Keşfet..</h4>
+ <p>Daha önce arayıp bulamadığın şarkıların tadını çıkar.</p>
+ 
+</div>
+</div>
+</div>
+</section>
+
+ <!--**********************************-->
+<br>
+ <a name="hakkımızda"></a>
+  <div class="breadcrumb">
+          <h4></h4>
+  </div>
+
+<footer class="bg-dark py-5">
+<div class="container text-white" style="height: 200px">
+<div class="row">
+       <div class="col-md-2">
+       <h3><b>Flask</b></h3>
+       </div>
+       <div class="col-md-2">
+       <ul class="list-unstyled">
+        <li class="text-muted mb-3"><small><b>HAKKIMIZDA</b></small></li>
+       <li>Güncel</li>
+       <li>Çalışmalar</li>
+       <li>Haberler</li>
+       </ul>
+       </div>
+
+       <div class="col-md-2">
+       <ul class="list-unstyled">
+      <li class="text-muted mb-3"><small><b>TOPLULUKLAR</b></small></li>
+       <li>Sanatçılar</li>
+       <li>Albümler</li>
+       <li>Geliştiriciler</li>
+       </ul>
+       </div>
+
+       <div class="col-md-2">
+       <ul class="list-unstyled">
+      <li class="text-muted mb-3"><small><b>YARARLI BAĞLANTILAR</b></small></li>
+       <li>Yardım</li>
+       <li>Web Çalar</li>
+
+       </ul>
+       </div>
+       <div class="col-md-4 text-right">
+       <i class="fab fa-facebook fa-2x mx-3" aria-hidden="true"></i>
+       <i class="fab fa-instagram fa-2x mx-3"aria-hidden="true" ></i>
+       <i class="fab fa-twitter fa-2x mx-3" aria-hidden="true"></i>   
+       
+       </div>
+</div>
+</div> 
+</footer>
+<br>
+ <a name="hakkımızda"></a>
+  <div class="breadcrumb">
+          <h4></h4>
+  </div>
+
+{% endblock%}

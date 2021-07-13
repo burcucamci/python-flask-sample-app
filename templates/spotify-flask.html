@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+   
+{% block head  %}
+<title>Search</title>
+ {% endblock%}
+
+{% block body  %} 
+
+    <style>
+        #onlyJSyc{ 
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        border: none;
+        outline: none;
+        background: url(http://4.bp.blogspot.com/-b50XKMWz84U/W9RouwhqVII/AAAAAAAAR_U/qQFXBOiUuQUC9Rv_evE4S7P9_yZ1YzZDgCK4BGAYYCw/s1600/yukari.png) no-repeat;
+        cursor: pointer;
+        padding: 0px;
+        width: 40px;
+        height: 40px;
+        }
+        </style>
+        <button onclick="topFunction()" id="onlyJSyc"></button>
+        <script>
+        window.onscroll = function() {
+        scrollFunction()
+        };
+        function scrollFunction() {
+        if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500)
+        document.getElementById("onlyJSyc").style.display = "block"
+        else
+        document.getElementById("onlyJSyc").style.display = "none"
+        }
+        function topFunction() {
+        if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+        document.body.scrollTop -= 40
+        document.documentElement.scrollTop -= 40
+        setTimeout(function() {
+        topFunction()
+        }, 0)
+        } else {
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+        }
+        }
+        </script> 
+       
+<style>
+
+h1{
+color:black;
+}
+
+h4{
+	color:black;
+}
+
+.text_box_input {
+    width: 1000px;
+}
+
+</style>
+<br>
+<div class="alert alert-warning" role="alert">
+<h4 class="display-5 text-center text-black"> Search Your Mood </h4>
+</div>
+
+	<div class="container content ">
+		<div class="row">
+			<div class="twelve columns ">
+				<h4 class="display-4  ">MOODIFY</h4>
+			</div>
+		</div>
+
+		<form class="form" action = "/posts" method = "post">
+			<div class="row">
+				<div class="ten columns ">	
+					<p class="text_box">
+						<input class="text_box_input" type="text" placeholder="Search what you feel" name = "nm" />
+					</p>
+				</div>
+				<div class="two columns">
+				
+		
+					<input class="btn btn-warning" type = "submit" value = "search" />
+				</div>
+			</div>
+		</form>
+
+
+<!--TRACKS-->
+		{% if tracks %} 
+		<p></p>
+		{% for track in tracks %}
+		<div class="tile row">
+			<div class="four columns">
+				<img class="albumart" src={{track['album']['images'][1]['url']}}>
+			</div>	
+
+			<div class="eight columns songinfo">
+				<p class="song_name">{{track['name']}}</p>
+				<p class="artist_name">{{track['artists'][0]['name']}}</p>
+
+				<audio controls>
+					<source src="{{track['preview_url']}}" type="">
+				</audio>
+				<div class="row">
+					<p class="audio_link four columns">
+						<a href="{{track['external_urls']['spotify']}}">
+							<!--<img src="https://logodownload.org/wp-content/uploads/2020/03/listen-on-spotify.png"> -->
+						</a>
+					</p>
+					<figure class="two columns popularity">
+					<!--<img class="flame" title="popularity" src="{{url_for('static',filename='icons/flame.png')}}"> -->
+						<figcaption>
+							{{track['popularity']}}
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+		{% endif %}
+	</div>
+
+
+	<!--footer-->
+	<br>
+	<div class="alert alert-warning" role="alert">
+	<div class="alert alert-warning" role="alert">
+	
+ 
+</div>
+ 
+</div>
+<footer class="bg-dark py-5">
+<div class="container text-white" style="height: 200px">
+<div class="row">
+       <div class="col-md-2">
+       <h3><b>MOODIFY</b></h3>
+       </div>
+       <div class="col-md-2">
+       <ul class="list-unstyled">
+        <li class="text-muted mb-3"><small><b>HAKKIMIZDA</b></small></li>
+       <li>Güncel</li>
+       <li>Çalışmalar</li>
+       <li>Haberler</li>
+       </ul>
+       </div>
+
+       <div class="col-md-2">
+       <ul class="list-unstyled">
+      <li class="text-muted mb-3"><small><b>TOPLULUKLAR</b></small></li>
+       <li>Sanatçılar</li>
+       <li>Albümler</li>
+       <li>Geliştiriciler</li>
+       </ul>
+       </div>
+
+       <div class="col-md-2">
+       <ul class="list-unstyled">
+      <li class="text-muted mb-3"><small><b>YARARLI BAĞLANTILAR</b></small></li>
+       <li>Yardım</li>
+       <li>Web Çalar</li>
+
+       </ul>
+       </div>
+       <div class="col-md-4 text-right">
+       <i class="fab fa-facebook fa-2x mx-3" aria-hidden="true"></i>
+       <i class="fab fa-instagram fa-2x mx-3"aria-hidden="true" ></i>
+       <i class="fab fa-twitter fa-2x mx-3" aria-hidden="true"></i>   
+       
+       </div>
+</div>
+</div> 
+</footer>
+<br>
+ <div class="alert alert-warning" role="alert">
+  <div class="alert alert-warning" role="alert">
+ 
+</div>
+</div>
+	
+{% endblock%}

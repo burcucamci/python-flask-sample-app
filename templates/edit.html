@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+   
+{% block head  %}
+<title>Edit Posts</title>
+ {% endblock%}
+
+ {% block body  %} 
+
+
+<h1>All Posts </h1>
+
+<hr>
+<h2>Create New Blog Post : </h2>
+
+<form action='/posts/edit/{{post.id}}' method='POST'>
+
+Title:<input type ='text' name='title' id ='title',value='{{post.title}}'>
+<br> 
+Author:<input type ='text' name='author' id ='author',value='{{post.author}}'>
+<br>
+Posts:<input type ='text' name='content' id ='content',value='{{post.content}}'>
+<br>
+
+<input type='submit' value='Post'>
+ </form>
+ <hr>
+
+
+{% endblock%}
